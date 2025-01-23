@@ -1,5 +1,4 @@
 const nx = require('@nx/eslint-plugin');
-
 module.exports = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
@@ -7,6 +6,7 @@ module.exports = [
   {
     ignores: ['**/dist'],
   },
+
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
@@ -17,8 +17,47 @@ module.exports = [
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
           depConstraints: [
             {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
+              sourceTag: 'type:app',
+              onlyDependOnLibsWithTags: [
+                'type:api',
+                'type:feature',
+                'type:shell',
+                'type:ui',
+                'type:domain-logic',
+                'type:util',
+              ],
+            },
+            {
+              sourceTag: 'type:api',
+              onlyDependOnLibsWithTags: [
+                'type:ui',
+                'type:domain-logic',
+                'type:util',
+              ],
+            },
+            {
+              sourceTag: 'type:feature',
+              onlyDependOnLibsWithTags: [
+                'type:ui',
+                'type:domain-logic',
+                'type:util',
+              ],
+            },
+            {
+              sourceTag: 'type:ui',
+              onlyDependOnLibsWithTags: ['type:domain-logic', 'type:util'],
+            },
+            {
+              sourceTag: 'type:domain-logic',
+              onlyDependOnLibsWithTags: ['type:util'],
+            },
+            {
+              sourceTag: 'domain:shared',
+              onlyDependOnLibsWithTags: ['domain:shared'],
+            },
+            {
+              sourceTag: 'domain:users',
+              onlyDependOnLibsWithTags: ['domain:users', 'domain:shared'],
             },
           ],
         },

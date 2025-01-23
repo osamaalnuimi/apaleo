@@ -14,7 +14,29 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@apaleo/shared/ui-table-skeleton": [
+        "libs/shared/ui-table-skeleton/src/index.ts"
+      ],
+      "@apaleo/shared/util-address-pipe": [
+        "libs/shared/util-address-pipe/src/index.ts"
+      ],
+      "@apaleo/shared/util-api-response-handler-service": [
+        "libs/shared/util-api-response-handler-service/src/index.ts"
+      ],
+      "@apaleo/shared/util-app-config": [
+        "libs/shared/util-app-config/src/index.ts"
+      ],
+      "@apaleo/shared/util-models": ["libs/shared/util-models/src/index.ts"],
+      "@apaleo/users/domain": ["libs/users/domain/src/index.ts"],
+      "@apaleo/users/feature-user-list": [
+        "libs/users/feature-user-list/src/index.ts"
+      ],
+      "@apaleo/users/shell": ["libs/users/shell/src/index.ts"],
+      "@apaleo/users/ui-user-list-entry": [
+        "libs/users/ui-user-list-entry/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

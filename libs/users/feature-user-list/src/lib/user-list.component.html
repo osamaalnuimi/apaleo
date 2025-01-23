@@ -1,0 +1,22 @@
+@let vm = vm$ | async; @defer(when vm?.loaded === DataLoadStatus.LOADED) {
+<mat-card class="w-full shadow-lg">
+  <mat-card-header class="bg-blue-50">
+    <mat-card-title class="text-blue-700 font-semibold">
+      Manage Users
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <user-list-entry
+      [userList]="vm?.dataTable"
+      [totalCount]="vm?.totalCount"
+      [pageIndex]="DEFAULT_PAGE_INDEX"
+      [pageSize]="DEFAULT_PAGE_SIZE"
+      [pageSizeOptions]="DEFAULT_OPTIONS_LIMIT"
+    ></user-list-entry>
+  </mat-card-content>
+</mat-card>
+} @placeholder {
+<shared-ui-table-skeleton></shared-ui-table-skeleton>
+} @loading {
+<shared-ui-table-skeleton></shared-ui-table-skeleton>
+}

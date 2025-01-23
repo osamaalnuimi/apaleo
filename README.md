@@ -1,101 +1,106 @@
-# Apaleo
+# Apaleo User List Project
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+## Project Overview
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+This Angular application is developed using modern web development technologies, including:
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- Nx Workspace
+- Angular Material
+- Tailwind CSS
+- NgRx Store
+- Jest for Unit Testing
+- Playwright for E2E Testing
+- Docker Support
 
-## Run tasks
+## Prerequisites
 
-To run the dev server for your app, use:
+- Node.js
+- npm
+
+## Installation
+
+```sh
+npm install
+```
+
+## Development Server
+
+Run the development server:
 
 ```sh
 npx nx serve apaleo
 ```
 
-To create a production bundle:
+## Build
+
+Create a production bundle:
 
 ```sh
 npx nx build apaleo
 ```
 
-To see all available targets to run for a project, run:
+## Project Insights
+
+To view all available targets for the project:
 
 ```sh
 npx nx show project apaleo
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
+To explore the project dependency graph:
 
 ```sh
-npx nx g @nx/angular:app demo
+npx nx graph
 ```
 
-To generate a new library, use:
+## Testing
+
+- Unit Tests: Implemented using Jest
+- E2E Tests: Implemented using Playwright
+
+Start the e2e tests:
 
 ```sh
-npx nx g @nx/angular:lib mylib
+npx nx run apaleo-e2e:e2e-ci--src/user-list.spec.ts
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## Docker Support
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
+### Build Docker Image
 
 ```sh
-npx nx connect
+docker build -t apaleo-app -f apps/apaleo/Dockerfile .
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+Alternatively, you can pull the pre-built image from Docker Hub:
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Docker Hub Image
 
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
+Pull the pre-built image:
 
 ```sh
-npx nx g ci-workflow
+docker pull osamaalnuimi/apaleo-app
 ```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Run Docker Container
 
-## Install Nx Console
+```sh
+docker run -p 8080:80 apaleo-app
+```
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+Access the application at `http://localhost:8080`
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Project Context
 
-## Useful links
+This project was developed as part of a larger application, utilizing the technology stack employed at Apaleo. While the current task focuses on creating a user list page, the project structure and tooling are designed with scalability and maintainability in mind.
 
-Learn more:
+## Technologies
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- Nx: Monorepo and project management
+- Angular: Frontend framework
+- Angular Material: UI components
+- Tailwind CSS: Utility-first CSS framework
+- NgRx: State management
+- Jest: Unit testing
+- Playwright: End-to-end testing
+- Docker: Containerization

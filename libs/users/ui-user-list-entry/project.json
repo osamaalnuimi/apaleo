@@ -1,0 +1,20 @@
+{
+  "name": "users-ui-user-list-entry",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/users/ui-user-list-entry/src",
+  "prefix": "user-list-entry",
+  "projectType": "library",
+  "tags": ["domain:users", "type:ui"],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/users/ui-user-list-entry/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
